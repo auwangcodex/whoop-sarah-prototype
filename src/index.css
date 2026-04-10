@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Nunito Sans', sans-serif;
+
+  --color-whoop-bg: #131316;
+  --color-whoop-card: #1C1C22;
+  --color-whoop-inner: #222229;
+  --color-whoop-border: #28282F;
+  --color-whoop-nav: #18181D;
+  --color-whoop-green: #00D26A;
+  --color-whoop-yellow: #F5C842;
+  --color-whoop-red: #FF4D4D;
+  --color-whoop-blue: #3DAEF5;
+  --color-whoop-violet: #8B6FFF;
+  --color-whoop-orange: #FF9100;
+  --color-whoop-gold: #FFD740;
+  --color-whoop-sleep: #8BA4C4;
+  --color-whoop-coral: #FF8A80;
+  --color-whoop-pink: #FF6B8A;
+
+  --animate-pulse-scan: pulse-scan 1.5s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-bounce-dot: bounce-dot 1.2s ease-in-out infinite;
+
+  @keyframes pulse-scan {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce-dot {
+    0%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-6px); }
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #131316;
+  color: #f2f2f2;
+  -webkit-font-smoothing: antialiased;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  display: none;
+}
+.overflow-y-auto {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
