@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Sarah — WHOOP AI Coach</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body, #root { height: 100%; width: 100%; background: #131316; }
-    body { overflow: hidden; }
-  </style>
-  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
-</head>
-<body>
-  <div id="root"></div>
-  <script type="text/babel">
-    const { useState, useRef, useEffect } = React;
-
+import { useState, useRef, useEffect } from "react";
 
 // ─── Pamela Reif profile photo (embedded base64) ───
 const PAMELA_IMG = "data:image/jpeg;base64,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";
@@ -730,10 +711,3 @@ export default function App() {
     </div>
   );
 }
-
-
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<App />);
-  </script>
-</body>
-</html>
